@@ -54,6 +54,10 @@ const TaskSchema = new Schema({
             message: 'Invalid day of the week'
         }
     }],
+    list: {
+        type: Schema.Types.ObjectId,
+        ref: 'List'
+    },
     createdAt: {
         type: Date,
         default: Date.now

@@ -15,8 +15,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/tasks', require('./routes/tasks'));
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/tasks', require('./routes/taskRoutes'));
+app.use('/api/lists', require('./routes/listRoutes'));
 
 const PORT = process.env.PORT || 5000;
 
