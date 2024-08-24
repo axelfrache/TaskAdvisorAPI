@@ -117,7 +117,7 @@ To interact with the Task Management API, follow these steps:
     - **Headers: Authorization: Bearer <your_token_here>**
 
 
-- **POST /api/lists/<listId>/task**
+- **POST /api/lists/:listId/task**
     - Add a task to a specific list.
     - **Headers: Authorization: Bearer <your_token_here>**
     - **Body**:
@@ -128,6 +128,6 @@ To interact with the Task Management API, follow these steps:
       ```
       
 
-- **DELETE /api/lists/<listId>/task**
+- **DELETE /api/lists/:listId/task**
   - Remove a task from a specific list.
   - **Headers: Authorization: Bearer <your_token_here>**
