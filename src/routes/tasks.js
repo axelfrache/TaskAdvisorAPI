@@ -31,6 +31,11 @@ router.post('/', auth, async (req, res) => {
         res.status(201).json(savedTask);
     } catch (error) {
         console.error('Error creating task:', error);
+
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({ error: error.message });
+        }
+
         res.status(500).json({ error: 'Error creating task' });
     }
 });

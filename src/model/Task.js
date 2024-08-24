@@ -13,14 +13,27 @@ const TaskSchema = new Schema({
     },
     name: {
         type: String,
-        required: true
+        required: [true, 'Task name is required'],
+        minlength: [3, 'Task name must be at least 3 characters long'],
+        maxlength: [100, 'Task name cannot exceed 100 characters'],
+        trim: true,
+        set: (value) => value.trim()
     },
     description: {
-        type: String
+        type: String,
+        maxlength: [500, 'Description cannot exceed 500 characters'],
+        trim: true,
+        set: (value) => value.trim()
     },
     dueDate: {
         type: Date,
-        required: true
+        required: [true, 'Due date is required'],
+        validate: {
+            validator: function(value) {
+                return value > new Date();
+            },
+            message: 'Due date must be in the future'
+        }
     },
     completed: {
         type: Boolean,
@@ -28,12 +41,18 @@ const TaskSchema = new Schema({
     },
     repetition: {
         type: String,
-        enum: Object.values(TaskRepetition),
+        enum: {
+            values: Object.values(TaskRepetition),
+            message: 'Invalid repetition value'
+        },
         default: TaskRepetition.ONCE
     },
     customRepetitionDays: [{
         type: String,
-        enum: Object.values(DaysOfWeek)
+        enum: {
+            values: Object.values(DaysOfWeek),
+            message: 'Invalid day of the week'
+        }
     }],
     createdAt: {
         type: Date,
