@@ -1,6 +1,6 @@
 # TaskAdvisorAPI
 
-The Task Management API is a backend solution built with Express.js, designed to manage tasks efficiently. It supports user authentication, task grouping via lists, and offers features like recurring tasks to streamline your task management workflow.
+TaskAdvisorAPI is a backend solution built with Express.js, designed to manage tasks efficiently. It supports user authentication, task grouping via lists, and offers features like recurring tasks to streamline your task management workflow.
 
 ## 🚀 Get Started
 
@@ -28,7 +28,7 @@ The API will be available at http://localhost:5000
 
 ### 🕹️ Usage
 
-To interact with the Task Management API, follow these steps:
+To interact with the TaskAdvisorAPI, follow these steps:
 
 1. **Register a new user** through the /api/auth/register endpoint.
 2. **Log in** to receive a JWT token via the /api/auth/login endpoint.
